@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Invitation Checker</title>
+    <style>
+        body {
+            background-color: #E6E6FA;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #nameInput {
+            text-transform: uppercase;
+            padding: 10px;
+            border: 2px solid #8A2BE2;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        #checkButton {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #8A2BE2;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #checkButton:hover {
+            background-color: #cb8cf8;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p> Please enter your full name </p>
+        <input type="text" id="nameInput" placeholder="Enter your name">
+        <button id="checkButton">Check Invitation</button>
+    </div>
+
+    <script>
+        const invitedNames = [
+            "ELIZABETH", "NICOLAS", "MAXIM", "NIKITA", 
+            "EMILY", "ANNA", "DANIEL","VALENTINA", "ADDY"
+        ];
+
+        document.getElementById('checkButton').addEventListener('click', function() {
+            const nameInput = document.getElementById('nameInput').value.trim().toUpperCase();
+
+            if (invitedNames.includes(nameInput)) {
+                if (confirm('You are invited :) Click OK to see the party details.')) {
+                    window.location.href = 'party_details.html';
+                }
+            } else {
+                alert('Sorry, you are not invited :(');
+            }
+        });
+    </script>
+</body>
+</html>
